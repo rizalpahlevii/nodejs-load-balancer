@@ -1,0 +1,46 @@
+version: "3.8"
+services:
+    app1:
+        container_name: app1
+        image: app1
+        build:
+            context: .
+            dockerfile: ./docker/app/Dockerfile
+            args:
+                - APP_NAME=app1
+                - PORT=3001
+    app2:
+        container_name: app2
+        image: app2
+        build:
+            context: .
+            dockerfile: ./docker/app/Dockerfile
+            args:
+                - APP_NAME=app2
+                - PORT=3002
+    app3:
+        container_name: app3
+        image: app3
+        build:
+            context: .
+            dockerfile: ./docker/app/Dockerfile
+            args:
+                - APP_NAME=app3
+                - PORT=3003
+    app4:
+        container_name: app4
+        image: app4
+        build:
+            context: .
+            dockerfile: ./docker/app/Dockerfile
+            args:
+                - APP_NAME=app4
+                - PORT=3004
+    nginx:
+        container_name: nginx
+        image: nginx
+        build:
+            context: ./docker/nginx
+            dockerfile: nginx.Dockerfile
+        ports:
+            - "5000:80"
